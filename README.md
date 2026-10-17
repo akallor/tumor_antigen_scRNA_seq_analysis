@@ -11,8 +11,11 @@ No current tool computes expression-resolved antigen coverage at single-cell res
 
 # Approach
 Module 1: Presentation competence. Score every cell on antigen presentation machinery: HLA-A/B/C, B2M, TAP1, TAP2, TAPBP, the immunoproteasome subunits PSMB8, PSMB9 and PSMB10, plus the regulators NLRC5 and CIITA. Output is a per-cell score and a presentation-competent fraction per sample. This module answers whether a tumour has a presentation-null subpopulation at all, independently of any candidate list.
+
 Module 2: Expression-resolved coverage. Map each candidate peptide to its source transcript, then compute per-candidate the fraction of malignant cells expressing that transcript, how uniformly expression is distributed, and whether it concentrates in particular cell states. This is clonality measured from expression rather than inferred from DNA.
+
 Module 3: Effective coverage and cocktail selection. Combine the two: a cell is covered only if it expresses the source transcript and retains presentation capacity. Given a candidate pool, select the peptide set maximising the fraction of malignant cells covered by at least one epitope. This is a weighted set-cover problem; a greedy approximation is sufficient and gives a bounded result.
+
 Modules 1 and 2 are scoped to be independently useful, so the package has value before module 3 exists. Build order follows that sequence.
 
 # Pipeline architecture
